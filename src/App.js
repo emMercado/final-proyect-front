@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header/Header';
+import Places from './components/Places/Places';
+import Home from './pages/Home/Home';
+import CreatePlace from './pages/CreatePlace/CreatePlace';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div>
+        <Header />
+        <div className="container px-3 mx-auto">
+          <Switch>
+            <Route path='/places' component={Places}></Route>
+            <Route path='/createplace' component={CreatePlace}></Route>
+            <Route path='/' component={Home}></Route>
+          </Switch>
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
