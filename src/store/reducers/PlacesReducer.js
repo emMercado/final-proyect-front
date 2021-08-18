@@ -1,20 +1,20 @@
-import { CREATE_PLACES_ACTION, CONFIRMED_GET_PLACES  } from '../actions/PlacesActions'
+import { CREATE_PLACES_ACTION, CONFIRMED_GET_PLACES,CONFIRMED_CREATE_PLACES_ACTION  } from '../actions/PlacesActions'
 
 
 const initialState = {
-    places: [
-        { id: 1, title: 'newPlace', description: 'Sample description' },
-        { id: 2, title: 'newPlace2', description: 'Sample description 2' }
-    ]
+    places: [],
 };
 
 export function PlacesReducer(state = initialState, actions) {
 
     if (actions.type === CREATE_PLACES_ACTION) {
-        const place = {
-            id: Math.random(),
-            title: 'newPlace23',
-            description: 'Sample description 23'
+        const place  = {
+            id: '',
+            name: '',
+            address: '',
+            latitude: '',
+            longitude: '',
+            url: ''
         };
 
         const places = [...state.places];
@@ -25,10 +25,17 @@ export function PlacesReducer(state = initialState, actions) {
         };
     }
 
+    if(actions.type === CONFIRMED_CREATE_PLACES_ACTION) {
+        const places = [...state.places];
+        places.push(actions.payload)
+        
+        return {...state, places}
+    }
+
     if(actions.type === CONFIRMED_GET_PLACES) {
         return {
             ...state,
-            place: actions.payload
+            places: actions.payload
         }
     }
 

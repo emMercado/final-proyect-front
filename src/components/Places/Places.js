@@ -12,7 +12,9 @@ class Places extends Component {
     }
 
     componentDidMount() {
-        this.props.getPlacesAction();
+        if(this.props.places && !this.props.places.length){
+            this.props.getPlacesAction();
+        }
     }
 
     render() {
@@ -22,8 +24,11 @@ class Places extends Component {
         for (let place of this.props.places) {
             places.push(
                 <div key={place.id} className='shadow border p-3 mx-3 mt-3 w-1/3'>
-                    <div> {place.title} </div>
-                    <div> {place.description}</div>
+                    <div> {place.name} </div>
+                    <div> {place.address}</div>
+                    <div> {place.longitude}</div>
+                    <div> {place.latitude}</div>
+                    <div> {place.url}</div>
                     <hr />
                 </div>);
         }
@@ -37,6 +42,7 @@ class Places extends Component {
                     </Link>
                 </div>
                 <hr />
+                
                 <div className='flex'>
                     {places}
                 </div>
