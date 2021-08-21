@@ -1,4 +1,8 @@
-import { CREATE_PLACES_ACTION, CONFIRMED_GET_PLACES,CONFIRMED_CREATE_PLACES_ACTION  } from '../actions/PlacesActions'
+import { CREATE_PLACES_ACTION, 
+    CONFIRMED_GET_PLACES,
+    CONFIRMED_CREATE_PLACES_ACTION, 
+    CONFIRMED_EDIT_PLACE_ACTION  } 
+from '../actions/PlacesActions'
 
 
 const initialState = {
@@ -24,6 +28,19 @@ export function PlacesReducer(state = initialState, actions) {
             places,
         };
     }
+
+    if(actions.type === CONFIRMED_EDIT_PLACE_ACTION){
+        const places = [...state.places];
+        const placeIndex = places.findIndex(
+            (place) => place.id === actions.payload.id,
+        );
+        places[placeIndex] = actions.payload;
+        return {
+            ...state,
+            places,
+        }
+    }
+
 
     if(actions.type === CONFIRMED_CREATE_PLACES_ACTION) {
         const places = [...state.places];

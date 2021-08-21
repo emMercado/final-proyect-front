@@ -10,6 +10,15 @@ export function createPlace(placeData){
     );
 }
 
+export function updatePlace(place, placeId ){
+    
+    return axios.patch(
+        `https://final-proyect-vac.herokuapp.com/places/${placeId}`, 
+    place,
+    
+    );
+}
+
 export function formatPlaces(placesData) {
     /* console.log(response.data); */
     let places = [];

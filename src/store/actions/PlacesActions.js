@@ -1,9 +1,11 @@
-import { createPlace,formatPlaces, getPlaces } from '../../services/PlacesServices'
+import { createPlace,formatPlaces, getPlaces, updatePlace } from '../../services/PlacesServices'
 
 export const CREATE_PLACES_ACTION = '[Places Action] Create Places';
 export const CONFIRMED_CREATE_PLACES_ACTION = '[Places Action] Confirmed Create Places';
 export const GET_PLACES = '[Places Action] Get Places'
 export const CONFIRMED_GET_PLACES = '[Places Action] Confirmed Get Places'
+export const EDIT_PLACE_ACTION = '[Places Action] Update Place'
+export const CONFIRMED_EDIT_PLACE_ACTION = '[Places Action] Confirmed Update Place'
 
 export function createPlacesAction(placeData, history) {
     return dispatch => {
@@ -42,4 +44,21 @@ export function confirmedGetPlacesAction(places) {
         type: CONFIRMED_GET_PLACES,
         payload: places,
     }
+}
+
+export function confirmedUpdatePlaceAction(place) {
+    return {
+        type: CONFIRMED_EDIT_PLACE_ACTION,
+        payload: place,
+        
+    }
+}
+
+export function updatePlaceAction (place, history) {
+    return (dispatch) => {
+        updatePlace(place, place.id).then(response => {
+            dispatch(confirmedUpdatePlaceAction(place));
+            history.push('/places')
+        });
+    };
 }
