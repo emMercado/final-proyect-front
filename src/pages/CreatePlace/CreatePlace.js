@@ -85,7 +85,7 @@ export default function CreatePlace(props) {
                         </div>
                     </div>
                     <div>
-                        <button type='submit'>Create Post</button>
+                        <button type='submit'>Create Place</button>
                     </div>
                 </form>
             </div>

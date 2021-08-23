@@ -58,7 +58,7 @@ class Places extends Component {
                             </Card.Text>
                             <div>
                                 <div>
-                                    <Link to={{ pathname: `/places/${place.id}` }} className='text-purple-500'>View Details</Link>
+                                    <Link to={{ pathname: `/places/${place._id}` }} className='text-purple-500'>View Details</Link>
 
                                     {/*  <Button variant="danger">
                                         <div><Link to={{ pathname: `/places/${place.id}` }} className='text-purple-500'>View Details</Link></div>
@@ -72,11 +72,7 @@ class Places extends Component {
                                     <Link to={{ pathname: `/places/${place.id}`}} className='text-purple-500'>Edit Details </Link>
                                 </div>
                                 <div>
-                                    <Button className='text-purple-500' onClick={() => this.onDeletePlace(place._id)}>Delete
-                                   {/* {console.log(place._id)}*/}
-                                     {console.log(place.id)} 
-                                    </Button>
-                                    
+                                    <Button className='text-purple-500' onClick={() => this.onDeletePlace(place._id)}>Delete</Button>
                                 </div>
                             </div>
                         </Card.Body>
