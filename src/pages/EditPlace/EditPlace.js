@@ -27,15 +27,15 @@ function EditPlace(props) {
 
             <div>
                 <form onSubmit={onUpdatePlace}>
-                    <div>
+                    {/* <div>
                         <label>Name</label>
                         <div>
                             <input type='text'
-                                value={place.id}
+                                value={place._id}
                                 onChange={(e) => setPlace({ ...place, id: e.target.value })}
                             />
                         </div>
-                    </div>
+                    </div> */}
                     <div>
                         <label>Name</label>
                         <div>

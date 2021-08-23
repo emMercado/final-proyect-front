@@ -1,4 +1,4 @@
-import { createPlace,formatPlaces, getPlaces, updatePlace } from '../../services/PlacesServices'
+import { createPlace,formatPlaces, getPlaces, updatePlace, deletePlace } from '../../services/PlacesServices'
 
 export const CREATE_PLACES_ACTION = '[Places Action] Create Places';
 export const CONFIRMED_CREATE_PLACES_ACTION = '[Places Action] Confirmed Create Places';
@@ -6,6 +6,26 @@ export const GET_PLACES = '[Places Action] Get Places'
 export const CONFIRMED_GET_PLACES = '[Places Action] Confirmed Get Places'
 export const EDIT_PLACE_ACTION = '[Places Action] Update Place'
 export const CONFIRMED_EDIT_PLACE_ACTION = '[Places Action] Confirmed Update Place'
+export const CONFIRMED_DELETE_PLACE_ACTION = '[Places Action] Confirmed Delete Place'
+
+export function deletePlaceAction(placeId, history) {
+
+    return(dispatch)=> {
+        deletePlace(placeId).then((response) => {
+            dispatch(confirmedDeletePlaceAction(placeId));
+            history.push('places')
+        });
+    }
+    
+}
+
+export function confirmedDeletePlaceAction(placeId) {
+    
+    return{
+        type: CONFIRMED_DELETE_PLACE_ACTION,
+        payload: placeId
+    }
+}
 
 export function createPlacesAction(placeData, history) {
     return dispatch => {
@@ -16,7 +36,7 @@ export function createPlacesAction(placeData, history) {
             }
             dispatch(confirmedCreatePlaceAction(singlePlaces))
             console.log(response.data)
-            history.push('/places')
+            history.push('')
         });
     }
 }

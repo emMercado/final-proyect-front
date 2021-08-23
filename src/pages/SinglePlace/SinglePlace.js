@@ -4,8 +4,7 @@ import { getPlace } from '../../store/selectors/PlaceSelector';
 function SinglePlace(props) {
     return (
         <div >
-            <div>Single place Page</div>
-            {console.log(props)}
+            <div>Single place Page</div>  
             <div>Id: {props.place.id}</div>
             <div>Name: {props.place.name}</div>
             <div>Address: {props.place.address}</div>

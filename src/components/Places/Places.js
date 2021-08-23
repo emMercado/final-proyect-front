@@ -1,11 +1,15 @@
 import { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { createPlacesAction, getPlacesAction } from '../../store/actions/PlacesActions';
 import { Link, Route, Switch } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Card, Button } from 'react-bootstrap';
 import SinglePlace from '../../pages/SinglePlace/SinglePlace';
 import EditPlace from '../../pages/EditPlace/EditPlace';
+import { 
+    createPlacesAction, 
+    getPlacesAction, 
+    deletePlaceAction 
+} from '../../store/actions/PlacesActions';
 
 class Places extends Component {
 
@@ -19,10 +23,16 @@ class Places extends Component {
         }
     }
 
+    onDeletePlace(placeId) {
+        if(window.confirm('Are you sure you want to delete place?')){
+            this.props.deletePlaceAction(placeId, this.props.history)
+        }
+    }
+
     render() {
 
         const places = [];
-
+        
         for (let place of this.props.places) {
             places.push(
 
@@ -60,6 +70,13 @@ class Places extends Component {
                                 </div>
                                 <div>
                                     <Link to={{ pathname: `/places/${place.id}`}} className='text-purple-500'>Edit Details </Link>
+                                </div>
+                                <div>
+                                    <Button className='text-purple-500' onClick={() => this.onDeletePlace(place._id)}>Delete
+                                   {/* {console.log(place._id)}*/}
+                                     {console.log(place.id)} 
+                                    </Button>
+                                    
                                 </div>
                             </div>
                         </Card.Body>
@@ -121,7 +138,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ createPlacesAction, getPlacesAction }, dispatch);
+    return bindActionCreators({ createPlacesAction, getPlacesAction, deletePlaceAction }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Places);
