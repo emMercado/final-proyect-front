@@ -27,8 +27,6 @@ function EditPlace(props) {
 
             <div >
                 <form onSubmit={onUpdatePlace}>
-
-
                     {/* <div>
                         <label>Name</label>
                         <div>
