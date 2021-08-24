@@ -13,7 +13,7 @@ export function deletePlaceAction(placeId, history) {
     return(dispatch)=> {
         deletePlace(placeId).then((response) => {
             dispatch(confirmedDeletePlaceAction(placeId));
-            history.push('places')
+            history.push('/places')
         });
     }
     
@@ -36,7 +36,7 @@ export function createPlacesAction(placeData, history) {
             }
             dispatch(confirmedCreatePlaceAction(singlePlaces))
             console.log(response.data)
-            history.push('')
+            history.push('/places')
         });
     }
 }

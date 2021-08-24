@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createPlacesAction } from '../../store/actions/PlacesActions';
+import { Card, Button } from 'react-bootstrap';
 
 export default function CreatePlace(props) {
     const id = '';
@@ -28,67 +29,88 @@ export default function CreatePlace(props) {
     }
 
     return (
-        <div>
-            <div>
-                <h2>Create Place Page</h2>
+        <div   class="card text-center m-20">
+
+            <Card style={{ width: '50rem' }} class="text-center">
                 <div>
-                    <Link to='/places' className=''>Back to places</Link>
+                    <h2>Create Place</h2>
                 </div>
-            </div>
+                <div class="container mt-10">
+                    <div class="mt-3">
+                        <form onSubmit={onCreatePlace}>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div type='text' class="input-group-prepend" >
+                                        <span class="input-group-text" id="basic-addon3">Name</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                    ></input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div type='text' class="input-group-prepend" >
+                                        <span class="input-group-text" id="basic-addon3">Address</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
+                                        value={address}
+                                        onChange={(e) => setAddress(e.target.value)}
+                                    ></input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div type='text' class="input-group-prepend" >
+                                        <span class="input-group-text" id="basic-addon3">Longitude</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
+                                        value={longitude}
+                                        onChange={(e) => setLongitude(e.target.value)}
+                                    ></input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div type='text' class="input-group-prepend" >
+                                        <span class="input-group-text" id="basic-addon3">Latitude</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
+                                        value={latitude}
+                                        onChange={(e) => setLatitude(e.target.value)}
+                                    ></input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div type='text' class="input-group-prepend" >
+                                        <span class="input-group-text" id="basic-addon3">Url</span>
+                                    </div>
+                                    <textarea
+                                        value={url}
+                                        onChange={(e) => setUrl(e.target.value)}>
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 mb-2">
+                                    <Button variant="warning" class="text-decoration-none text-white">
+                                        <Link to='/places' className='' class="text-decoration-none text-white">Back to places</Link>
+                                    </Button>
 
-            <div>
-                <form onSubmit={onCreatePlace}>
-                    <div>
-                        <label>Name</label>
-                        <div>
-                            <input type='text'
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <label>Address</label>
-                        <div>
-                            <input type='text'
-                                value={address}
-                                onChange={(e) => setAddress(e.target.value)}
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <label>Latitude</label>
-                        <div>
-                            <input type='text'
-                                value={latitude}
-                                onChange={(e) => setLatitude(e.target.value)}
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <label>Longitude</label>
-                        <div>
-                            <input type='text'
-                                value={longitude}
-                                onChange={(e) => setLongitude(e.target.value)}
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <label>Url</label>
-                        <div>
-                            <textarea
-                                value={url}
-                                onChange={(e) => setUrl(e.target.value)}>
+                                </div>
+                                <div class="col-6 ml-3 mb-2">
+                                    <Button variant="success" class="text-decoration-none text-white">
+                                        <button type='submit'>Create Post</button>
+                                    </Button>
+                                </div>
 
-                            </textarea>
-                        </div>
+                            </div>
+                        </form>
                     </div>
-                    <div>
-                        <button type='submit'>Create Place</button>
-                    </div>
-                </form>
-            </div>
+                </div>
+            </Card>
         </div>
     )
 }

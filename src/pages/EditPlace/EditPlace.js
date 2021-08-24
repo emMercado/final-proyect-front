@@ -15,18 +15,20 @@ function EditPlace(props) {
     }, [props.place]
     )
 
-    function onUpdatePlace(e) { 
+    function onUpdatePlace(e) {
         e.preventDefault();
         dispatch(updatePlaceAction(place, props.history))
         console.log(dispatch)
     }
 
     return (
-        <div>
+        <div >
             <div>Edit Place Details</div>
 
-            <div>
+            <div >
                 <form onSubmit={onUpdatePlace}>
+
+
                     {/* <div>
                         <label>Name</label>
                         <div>
@@ -36,7 +38,7 @@ function EditPlace(props) {
                             />
                         </div>
                     </div> */}
-                    <div>
+                    <div class="form-group">
                         <label>Name</label>
                         <div>
                             <input type='text'
@@ -47,14 +49,14 @@ function EditPlace(props) {
                     </div>
                     <div>
                         <label>Address</label>
-                        <div>
+                        <div class="form-group">
                             <input type='text'
                                 value={place.address}
                                 onChange={(e) => setPlace({ ...place, address: e.target.value })}
                             />
                         </div>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label>Latitude</label>
                         <div>
                             <input type='text'
@@ -63,7 +65,7 @@ function EditPlace(props) {
                             />
                         </div>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label>Longitude</label>
                         <div>
                             <input type='text'
@@ -72,23 +74,23 @@ function EditPlace(props) {
                             />
                         </div>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label>Url</label>
                         <div>
                             <textarea
                                 value={place.url}
                                 onChange={(e) => setPlace({ ...place, url: e.target.value })}
                             >
-
                             </textarea>
                         </div>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <Button>
 
                             <button type='submit'>Edit Place</button>
                         </Button>
                     </div>
+
                 </form>
             </div>
 

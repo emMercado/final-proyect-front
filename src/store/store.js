@@ -1,9 +1,9 @@
 import { applyMiddleware, createStore, compose } from 'redux/';
 import { PlacesReducer } from './reducers/PlacesReducer';
-import { GET_PLACES,  confirmedGetPlacesAction  } from './actions/PlacesActions'
-import thunk from 'redux-thunk';
+/* import { GET_PLACES,  confirmedGetPlacesAction  } from './actions/PlacesActions'
+ */import thunk from 'redux-thunk';
 
- const loggerMiddleware = (store) => (next) => (actions) => {
+/*  const loggerMiddleware = (store) => (next) => (actions) => {
     console.log('dispatching action', actions);
     console.log('before dispatching state', store.getState());
     let result = next(actions);
@@ -12,15 +12,15 @@ import thunk from 'redux-thunk';
     },5000)
     console.log('next state', store.getState());
     return result; 
-}; 
+};  */
 
-const fetchDataMiddleware = store => next => actions => {
+/* const fetchDataMiddleware = store => next => actions => {
     if (actions.type === GET_PLACES) {
         //ajax call
         
     }
     return next(actions);
-}
+} */
  
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;

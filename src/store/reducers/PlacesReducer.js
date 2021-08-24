@@ -30,7 +30,6 @@ export function PlacesReducer(state = initialState, actions) {
     }
 
     if(actions.type === CONFIRMED_DELETE_PLACE_ACTION){
-        console.log(state.places) 
         const places = [...state.places];
         
         const placeIndex = places.findIndex(place => place.id === actions.payload)
