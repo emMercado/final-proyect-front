@@ -1,19 +1,20 @@
 import axios from 'axios';
+import routes from '../rest/routes';
 
 export function getPlaces() {
-    return axios.get(`https://final-proyect-vac.herokuapp.com/places/`);
+    return axios.get(routes.sample());
 }
 
 export function createPlace(placeData) {
-    return axios.post(`https://final-proyect-vac.herokuapp.com/places/`,
-        placeData,
+    return axios.post(routes.sample(),
+    placeData,
     );
 }
 
 export function updatePlace(place, placeId) {
 
     return axios.patch(
-        `https://final-proyect-vac.herokuapp.com/places/${placeId}`,
+        `${routes.sample()}${placeId}`,
         place,
 
     );
@@ -21,12 +22,12 @@ export function updatePlace(place, placeId) {
 export function deletePlace(placeId) {
 
     return axios.delete(
-        `https://final-proyect-vac.herokuapp.com/places/${placeId}`,
+        `${routes.sample()}${placeId}`
     );
 }
 
 export function formatPlaces(placesData) {
-    /* console.log(response.data); */
+   
     let places = [];
     for (let key in placesData) {
         places.push({ ...placesData[key], id: key });
