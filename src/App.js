@@ -14,7 +14,7 @@ function App() {
         <Header />
         <div >
           <div className='flex'>
-            <div className='w-1/5'>
+            <div /* className='w-1/5' */>
               <Switch>
                 <Route path='/places' component={Places}></Route>
                 <Route path='/createplace' component={CreatePlace}></Route>
