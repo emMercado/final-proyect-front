@@ -8,9 +8,8 @@ export default function CreatePlace(props) {
     const id = '';
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
-    const [latitude, setLatitude] = useState('');
-    const [longitude, setLongitude] = useState('');
-    const [url, setUrl] = useState('');
+    const [img, setImg] = useState('');
+    const [urlMap, setUrlMap] = useState('');
 
     const dispatch = useDispatch();
 
@@ -19,10 +18,9 @@ export default function CreatePlace(props) {
         const placeData = {
             id,
             name,
-            address,
-            latitude,
-            longitude,
-            url,
+            address,  
+            img, 
+            urlMap,
         };
 
         dispatch(createPlacesAction(placeData, props.history));
@@ -63,33 +61,22 @@ export default function CreatePlace(props) {
                             <div class="form-group">
                                 <div class="input-group mb-3">
                                     <div type='text' class="input-group-prepend" >
-                                        <span class="input-group-text" id="basic-addon3">Longitude</span>
+                                        <span class="input-group-text" id="basic-addon3">Img</span>
                                     </div>
                                     <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
-                                        value={longitude}
-                                        onChange={(e) => setLongitude(e.target.value)}
+                                        value={img}
+                                        onChange={(e) => setImg(e.target.value)}
                                     ></input>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group mb-3">
                                     <div type='text' class="input-group-prepend" >
-                                        <span class="input-group-text" id="basic-addon3">Latitude</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
-                                        value={latitude}
-                                        onChange={(e) => setLatitude(e.target.value)}
-                                    ></input>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <div type='text' class="input-group-prepend" >
-                                        <span class="input-group-text" id="basic-addon3">Url</span>
+                                        <span class="input-group-text" id="basic-addon3">UrlMap</span>
                                     </div>
                                     <textarea
-                                        value={url}
-                                        onChange={(e) => setUrl(e.target.value)}>
+                                        value={urlMap}
+                                        onChange={(e) => setUrlMap(e.target.value)}>
                                     </textarea>
                                 </div>
                             </div>

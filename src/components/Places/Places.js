@@ -76,7 +76,7 @@ class Places extends Component {
                 <div className="flex items-center justify-between my-4" id="top">
                     <h2 className="bolder text-lg" class="ml-1">Places</h2>
                     <Button class="text-decoration-none text-white">
-                        <Link to='/createplace' variant='primary' class="text-decoration-none text-white" /* className="bg-danger px-3 py-2" */ >
+                        <Link to='/createplace' variant='primary' class="text-decoration-none text-white">
                             Create Place
                         </Link>
                     </Button>

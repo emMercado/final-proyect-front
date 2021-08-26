@@ -16,9 +16,8 @@ export function PlacesReducer(state = initialState, actions) {
             id: '',
             name: '',
             address: '',
-            latitude: '',
-            longitude: '',
-            url: ''
+            img: '',
+            urlMap: ''
         };
 
         const places = [...state.places];
