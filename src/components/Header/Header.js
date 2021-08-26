@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function Header(props) {
     return (
-        <div class="container">
+        <div class="container fixed">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="navbar-collapse">
                     <ul class="navbar-nav mr-auto">

@@ -9,8 +9,8 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="container mx-auto" >
+    <div className="mx-auto fixed-1" style={{ backgroundImage: `url('https://getwallpapers.com/wallpaper/full/7/c/6/765090-most-popular-technology-background-images-1920x1080-hd-for-mobile.jpg')` }}>
+      <BrowserRouter>
         <Header />
         <div >
           <div className='flex'>
@@ -23,8 +23,8 @@ function App() {
             </div>
           </div>
         </div>
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </div>
   );
 }
 
